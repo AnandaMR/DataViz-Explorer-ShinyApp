@@ -1,0 +1,70 @@
+---
+title: "Shiny App Presentation"
+author: "Ananda Rivas"
+date: "`r Sys.Date()`"
+output: ioslides_presentation
+---
+
+## Introduction  
+Welcome to my **Shiny App**! 
+
+🔹 This app lets users **explore datasets interactively**  
+🔹 Built with **Shiny & R**  
+
+### **Datasets Available:**  
+Users can **select** from three datasets:
+
+* **Iris** 🌸 *(Flower dataset)*  
+* **Mtcars** 🚗 *(Car attributes dataset)*  
+* **ToothGrowth** 🦷 *(Dental growth dataset)*  
+
+After selection, the app shows dataset details automatically.
+
+## Visualization Options
+Users can choose between:
+
+* Scatter Plot
+
+* Box Plot
+
+* Summary Statistics
+
+```{r}
+# Mostrar opciones de visualización
+plot_types <- c("Scatter Plot", "Box Plot", "Summary Statistics")
+plot_types
+```
+## Interactive Features
+Users can:
+
+- Select a dataset
+
+- Choose variables for X and Y axes
+
+- Pick a visualization type
+
+### Example: ToothGrowth Boxplot
+
+```{r,eval=FALSE}
+library(ggplot2)
+ggplot(ToothGrowth, aes(x = factor(dose), y = len)) + 
+  geom_boxplot(color = "#4C9CCF", fill = "#A3C8F0", notch = TRUE) + 
+  theme_minimal() +
+  labs(title = "Tooth Growth by Dose", x = "Dose", y = "Tooth Length")
+```
+## 
+```{r,echo=FALSE,warning=FALSE,fig.height=3,fig.width=3,fig.align='center'}
+library(ggplot2)
+ggplot(ToothGrowth, aes(x = factor(dose), y = len)) + 
+  geom_boxplot(color = "#4C9CCF", fill = "#A3C8F0", notch = TRUE) + 
+  theme_minimal() +
+  labs(title = "Tooth Growth by Dose", x = "Dose", y = "Tooth Length")
+```
+
+**Conclusion**
+
+* This Shiny app makes data exploration easy!
+
+* Users can analyze & visualize datasets dynamically.
+
+* Try it now! 
